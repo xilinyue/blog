@@ -1,0 +1,49 @@
+html {
+    font-family: "Microsoft YaHei", serif;
+    font-size: 14px;
+}
+body,html{
+    width: 100%;
+    height: 100%;
+}
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,
+ul,ol,li,pre,fieldset,button,input,textarea,th,td {
+    margin: 0;
+    padding: 0;
+}
+/*body,html{*/
+/*    height: 100%;*/
+/*}*/
+
+ul,ol {
+    list-style: none;
+}
+
+/* 重置文本格式元素 */
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* 重置表格元素 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*图片块化与去掉ie边框*/
+img {
+    border: 0;
+}
+
+/*颜色值
+    锌灰 #7a7374  字体颜色值
+    苍蝇灰 #36282b 背景色
+    浅灰 #dad4cb
+    茶花红 #ee3f4d
+    香叶红 #f07c82 用于字体
+    艳红 #ed5a65 用于ico图标
+    虹蓝 #2177b8
+    青矾绿 #2c9678
+    青莲（紫色）#8b2671 用于ico图标
+*/
