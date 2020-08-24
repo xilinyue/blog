@@ -48,17 +48,26 @@ app.use((req,res,next) => {
 
 - articles——文章表
 
-| _id          | mongodb数据库数据唯一标识                               |
-| ------------ | ------------------------------------------------------- |
-| title        | 文章标题                                                |
-| content      | 文章内容，使用vue-quill-editor编辑                      |
-| summary      | 文章摘要                                                |
-| create_time  | 书写时间                                                |
-| update_time  | 更新时间                                                |
-| likes        | 点赞数                                                  |
-| image        | 列表展示图片                                            |
-| comments     | 评论，是数组，内部包含字段——user_id,content,create_time |
-| is_recommend | true or false 是否置顶                                  |
+| _id          | mongodb数据库数据唯一标识          |
+| ------------ | ---------------------------------- |
+| title        | 文章标题                           |
+| content      | 文章内容，使用vue-quill-editor编辑 |
+| summary      | 文章摘要                           |
+| create_time  | 书写时间                           |
+| update_time  | 更新时间                           |
+| likes        | 点赞数                             |
+| image        | 列表展示图片                       |
+| comments     | _id数组，与comments表关联          |
+| is_recommend | true or false 是否置顶             |
+
+- commetns——文章评论表
+
+| _id         | mongodb数据库数据唯一标识 |
+| ----------- | ------------------------- |
+| user_name   | 评论用户名                |
+| avator      | 评论用户头像地址          |
+| content     | 评论内容，简单的文字内容  |
+| create_time | 创建时间                  |
 
 - banners——轮播图
 
@@ -72,11 +81,12 @@ app.use((req,res,next) => {
 
 | _id         | mongodb数据库数据唯一标识 |
 | ----------- | ------------------------- |
-| user_id     | 用户_id                   |
+| user_name   | 留言用户名                |
+| avator      | 留言用户头像              |
 | content     | 建议使用html格式内容      |
 | create_time | 留言时间                  |
 
-###### 3.routers——controller
+###### 3.routes——controller
 
 1. front
 
@@ -86,3 +96,4 @@ app.use((req,res,next) => {
 
    user(管理员登录)，article（列表展示，文章编辑，添加文章，文章评论管理，）banner（banner管理），message（留言管理）
 
+ 
