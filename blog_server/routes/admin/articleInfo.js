@@ -48,7 +48,7 @@ router.get("/listTag", (req,res) => {
         res.send({
             code: 0,
             message: '获取数据成功',
-            data: docs[0].tags
+            data: docs[0]
         })
     }).catch(err => {
         res.send({

@@ -13,7 +13,7 @@
                           :rows="2" v-model="articleAddForm.summary"></el-input>
             </el-form-item>
             <el-form-item label="标签" prop="tag">
-                <el-select v-model="articleAddForm.tag" placeholder="请选择类型">
+                <el-select v-model="articleAddForm.tag" placeholder="请选择标签">
                     <el-option
                             v-for="(item,index) in tags"
                             :key="index"
@@ -91,6 +91,10 @@
         },
         methods: {
             handleImageSuccess(res,file) {
+                this.$message({
+                    type: 'success',
+                    message: "图片上传成功"
+                });
                 this.imageUrl = URL.createObjectURL(file.raw);
                 this.articleAddForm.image = res.imgSrc;
             },
@@ -111,6 +115,9 @@
                     this.tags = res.data.tags;
                 });
             },
+            resetForm() {
+                this.$refs['articleAddForm'].resetFields();
+            },
             submitPost() {
                 this.$refs.articleAddForm.validate(valid => {
                     if (valid){
@@ -124,7 +131,10 @@
                         // }
 
                         articleService.articleAdd(this.articleAddForm).then(res => {
-                           console.log(res);
+                            this.$message({
+                                type: 'success',
+                                message: res.message
+                            });
                         });
                     }
                 });

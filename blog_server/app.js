@@ -20,17 +20,17 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'public')));
 
 // // session的使用
-// app.use(session({
-//     secret: "blog",  //密钥，一个字符串，用于加密，可以随便写
-//     cookie: {maxAge: 60*60*1000},  //给前端设置的cookie的有效时长，单位毫秒
-//     rolling: true,  //每次用户和后端交互时，刷新cookie的有效期
-//     resave: false,  //是否每次重新存储session
-//     saveUninitialized: false,  //初始化
-//     //将session存储到数据库中
-//     store: new sessionMongo({
-//         url: "mongodb://localhost:27017/blog"
-//     })
-// }));
+app.use(session({
+    secret: "blog",  //密钥，一个字符串，用于加密，可以随便写
+    cookie: {maxAge: 60*60*1000},  //给前端设置的cookie的有效时长，单位毫秒
+    rolling: true,  //每次用户和后端交互时，刷新cookie的有效期
+    resave: false,  //是否每次重新存储session
+    saveUninitialized: false,  //初始化
+    //将session存储到数据库中
+    store: new sessionMongo({
+        url: "mongodb://localhost:27017/blog"
+    })
+}));
 
 //设置允许跨域访问
 app.use((req,res,next) => {
@@ -50,13 +50,12 @@ app.use((req,res,next) => {
 
 // 各个路由
 // 1. admin
-app.use('/api/admin/user', require("./routes/admin/users"));
+app.use('/api/admin/users', require("./routes/admin/users"));
 app.use('/api/admin/article', require("./routes/admin/articles"));
 app.use('/api/admin/articleInfo', require("./routes/admin/articleInfo"));
+app.use('/api/admin/banners', require("./routes/admin/banners"));
 app.use('/api/uploadArticleFace',require('./utils/uploadArticleFace'));
-// app.get('/test',(req,res) => {
-//     res.send('sadf');
-// });
+app.use('/api/uploadBannerImage',require('./utils/uploadBannerImage'));
 // 2. front
 
 module.exports = app;

@@ -5,7 +5,7 @@
                 <h2>个人博客后台管理系统</h2>
                 <!--左侧下拉框-->
             </el-header>
-            <el-container>
+            <el-container class="main">
                 <el-aside width="200px" class="aside">
                     <admin-nav-bar></admin-nav-bar>
                 </el-aside>
@@ -31,10 +31,15 @@
     #admin{
         width: 100%;
         height: 100%;
-        overflow: hidden;
     }
     .header{
+        position: fixed;
+        width: 100%;
+        z-index: 9;
         background-color: #409EFF;
+    }
+    .main{
+        padding-top: 60px;
     }
     h2{
         height: 60px;

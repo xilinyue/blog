@@ -1,26 +1,28 @@
 <template>
-    <div class="tag_manage">
-        <main-title title="标签管理"></main-title>
+    <div class="banner_manage">
+        <main-title title="轮播图管理"></main-title>
         <el-table
-                :data="tags"
+                :data="bannerList"
                 border
                 style="width: 100%">
             <el-table-column
                     type="index"
                     label="#"
-                    width="50">
+                    width="60">
             </el-table-column>
             <el-table-column
-                    prop="name"
-                    label="名称"
-                    align="center">
+                    label="标题"
+                    prop="title">
             </el-table-column>
             <el-table-column
-                    label="操作"
+                    label="文章_id"
+                    prop="url">
+            </el-table-column>
+            <el-table-column
                     align="center"
-                    width="300">
+                    label="操作">
                 <template v-slot="scope">
-                    <el-button type="danger" size="mini" @click="deleteTag(scope.row)">删除</el-button>
+                    <el-button type="danger" size="mini" @click="deleteBanner(scope.row)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -29,45 +31,48 @@
 
 <script>
     import MainTitle from "../../../components/MainTitle";
-    import articleInfoService from "../../../api/articleInfoService";
+    import bannerService from "../../../api/bannerService";
     export default {
-        name: "TagManage",
+        name: "BannerManage",
         components: {
             MainTitle
         },
         data() {
             return{
-                tags: []
+                bannerList: []
             }
         },
         mounted() {
-            this.listTag();
+            this.getBannerList();
         },
         methods: {
-            listTag() {
-                articleInfoService.listTag().then(res => {
-                    let list = [];
-                    res.data.tags.forEach(item => {
-                        list.push({"name": item});
-                    });
-                    this.tags = list;
+            getBannerList() {
+                bannerService.bannerList().then(res => {
+                   if (res.code === 0){
+                       this.bannerList = res.data;
+                   }
                 });
             },
-            deleteTag(row){
-                this.$confirm('此操作将永久删除该Tag, 是否继续?', '提示', {
+            deleteBanner(row) {
+                this.$confirm('此操作将永久删除该录播图, 是否继续?', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(() => {
-                    articleInfoService.deleteTag(row.name).then(res => {
+                    bannerService.deleteBannerById(row._id).then(res => {
                         if (res.code === 0){
                             this.$message({
                                 type: 'success',
                                 message: res.message
                             });
-                            this.listTag();
+                            this.getBannerList();
+                        }else{
+                            this.$message({
+                                type: 'danger',
+                                message: res.message
+                            });
                         }
-                    });
+                    })
                 }).catch(() => {
                     this.$message({
                         type: 'info',

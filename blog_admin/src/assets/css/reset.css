@@ -58,6 +58,9 @@ img {
     height: 178px;
     display: block;
 }
+.el-pagination{
+    margin-top: 15px;
+}
 
 /*颜色值
     锌灰 #7a7374  字体颜色值
