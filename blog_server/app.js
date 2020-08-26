@@ -52,6 +52,8 @@ app.use((req,res,next) => {
 // 1. admin
 app.use('/api/admin/user', require("./routes/admin/users"));
 app.use('/api/admin/article', require("./routes/admin/articles"));
+app.use('/api/admin/articleInfo', require("./routes/admin/articleInfo"));
+app.use('/api/uploadArticleFace',require('./utils/uploadArticleFace'));
 // app.get('/test',(req,res) => {
 //     res.send('sadf');
 // });

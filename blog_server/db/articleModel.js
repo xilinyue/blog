@@ -17,6 +17,7 @@ let articleSchema = new Schema({
     title: {type: String, required: true},
     content: {type: String, required: true},
     summary: {type: String, required: true},
+    tag: {type: String, required: true},
     create_time: {type: String,default: Date.now},
     update_time: {type: String,default: Date.now},
     likes: {type: Number, default: 0},

@@ -35,6 +35,29 @@ table {
 img {
     border: 0;
 }
+.face-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.face-uploader .el-upload:hover {
+    border-color: #409EFF;
+}
+.face-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px !important;
+    text-align: center;
+}
+.face {
+    width: 178px;
+    height: 178px;
+    display: block;
+}
 
 /*颜色值
     锌灰 #7a7374  字体颜色值

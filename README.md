@@ -46,6 +46,13 @@ app.use((req,res,next) => {
 | is_admin    | true \|\| false 是否管理员 |
 | avator      | 头像图片地址               |
 
+- tag——文章标签
+
+| _id  | mongodb数据库数据唯一标识 |
+| ---- | ------------------------- |
+| tags | 数组，存储的是标签        |
+| num  | 文章总数目                |
+
 - articles——文章表
 
 | _id          | mongodb数据库数据唯一标识          |

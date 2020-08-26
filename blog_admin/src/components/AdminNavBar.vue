@@ -29,21 +29,24 @@
             return{
                 tabList: [
                     {title: '用户管理',icon: 'el-icon-user-solid',children: [
-                            {title: '用户管理',path: '/userAdmin'}
+                            {title: '用户管理',path: '/userManage'}
+                        ]},
+                    {title: '标签管理',icon: 'el-icon-s-promotion',children: [
+                            {title: '标签管理',path: '/tagManage'},
+                            {title: '添加标签',path: '/tagAdd'}
                         ]},
                     {title: '文章管理',icon: 'el-icon-s-order',children: [
-                            {title: '文章管理',path: '/articleAdmin'},
+                            {title: '文章管理',path: '/articleManage'},
                             {title: '添加文章',path: '/articleAdd/0'},
                             {title: '评论管理',path: '/articleComment'}
                         ]},
                     {title: '轮播图',icon: 'el-icon-picture',children: [
-                            {title: '轮播图管理',path: '/bannerAdmin'},
+                            {title: '轮播图管理',path: '/bannerManage'},
                             {title: '添加轮播图',path: '/bannerAdd'}
                         ]},
                     {title: '留言管理',icon: 'el-icon-s-comment',children: [
 
-                            {title: '轮播图管理',path: '/bannerAdmin'},
-                            {title: '轮播图添加',path: '/bannerAdd'}
+                            {title: '留言管理',path: '/messageManage'}
                         ]},
                 ]
             }

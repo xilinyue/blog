@@ -28,11 +28,18 @@ const routes = [
                 path: '',
                 name: 'Welcome',
                 component: () => import('../pages/admin/welcome/Welcome')
-            },
-            {
+            },{
                 path: 'articleAdd/:id',
                 name: 'ArticleAdd',
                 component: () => import('../pages/admin/article/ArticleAdd')
+            },{
+                path: 'tagAdd',
+                name: 'TagAdd',
+                component: () => import('../pages/admin/tag/TagAdd')
+            },{
+                path: 'tagManage',
+                name: 'TagManage',
+                component: () => import('../pages/admin/tag/TagManage')
             }
         ]
     },

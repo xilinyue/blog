@@ -12,15 +12,15 @@ let router = express.Router();
  * is_recommend true or false 是否置顶 参数不必须
  */
 router.post("/addArticle", (req,res) => {
-    let {title, content, summary, image, isRecommend} = req.body;
-    if(!title || !content || !summary || !image){
+    let {title, tag, content, summary, image, isRecommend} = req.body;
+    if(!title || !content || !summary || !image || !tag){
         res.send({
             code: 4,
             message: "必传参数不完整"
         });
         return true;
     }
-    articleModel.create({title, content, summary, image, is_recommend: isRecommend})
+    articleModel.create({title, content, tag, summary, image, is_recommend: isRecommend})
         .then(doc => {
             res.send({
                 code: 0,
