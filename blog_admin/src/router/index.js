@@ -32,6 +32,10 @@ const routes = [
                 name: 'Welcome',
                 component: () => import('../pages/admin/welcome/Welcome')
             },{
+                path: 'userManage',
+                name: 'UserManage',
+                component: () => import('../pages/admin/user/UserManage')
+            },{
                 path: 'articleAdd/:id',
                 name: 'ArticleAdd',
                 component: () => import('../pages/admin/article/ArticleAdd')

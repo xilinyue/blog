@@ -6,5 +6,8 @@ export default {
     },
     ifLogin() {
         return request.get('/users/ifLogin');
+    },
+    userList() {
+        return request.get('/users/userList');
     }
 }

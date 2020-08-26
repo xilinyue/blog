@@ -100,4 +100,23 @@ router.post('/logout',(req,res) => {
     }
 });
 
+/**
+ * 获取用户列表
+ */
+router.get("/userList", (req,res) => {
+    userModel.find({},{__v: 0,password: 0}).then(docs => {
+        res.send({
+            code: 0,
+            message: "数据获取成功",
+            data: docs
+        });
+    }).catch(err => {
+        res.send({
+            code: 5,
+            message: "服务器错误",
+            data: err
+        });
+    });
+});
+
 module.exports = router;
