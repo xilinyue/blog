@@ -62,7 +62,7 @@ router.get("/getArticleListLazy",(req,res) => {
         });
     }).catch(err => {
         res.send({
-            code: 0,
+            code: 5,
             message: "服务器错误",
             data: err
         });

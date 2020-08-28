@@ -57,6 +57,9 @@ app.use('/api/admin/banners', require("./routes/admin/banners"));
 app.use('/api/uploadArticleFace',require('./utils/uploadArticleFace'));
 app.use('/api/uploadBannerImage',require('./utils/uploadBannerImage'));
 // 2. front
+app.use('/api/front/banners', require("./routes/front/banner"));
+app.use('/api/front/articles', require("./routes/front/article"));
+app.use('/api/front/articleInfo', require("./routes/front/articleInfo"));
 
 module.exports = app;
 
