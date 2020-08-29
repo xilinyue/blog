@@ -13,7 +13,7 @@ let userSchema = new Schema({
     user_name: {type: String, required: true},
     password: {type: String, required: true},
     is_admin: {type: Boolean, default: false},
-    avator: {type: String, default: 'dsakfhask'},
+    avator: {type: String, default: 'http://localhost:3000/img/avator/defaultAvator.jpg'},
     create_time: {type: String,default: Date.now}
 });
 

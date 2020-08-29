@@ -13,7 +13,7 @@ router.post('/login',(req,res) => {
     let {userName,password} = req.body;
     if(!userName || !password) {
         res.send({
-            code: 0,
+            code: 4,
             message: '参数不完整'
         });
         return true;

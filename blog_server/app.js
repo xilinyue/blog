@@ -60,6 +60,8 @@ app.use('/api/uploadBannerImage',require('./utils/uploadBannerImage'));
 app.use('/api/front/banners', require("./routes/front/banner"));
 app.use('/api/front/articles', require("./routes/front/article"));
 app.use('/api/front/articleInfo', require("./routes/front/articleInfo"));
+app.use('/api/front/users', require("./routes/front/user"));
+app.use('/api/front/comments',require("./routes/front/commet"));
 
 module.exports = app;
 

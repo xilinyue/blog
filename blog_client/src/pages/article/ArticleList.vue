@@ -25,19 +25,12 @@
                     <Button style="margin-left: 10px" type="primary" ghost>{{currentTag}}</Button>
                 </Dropdown>
 
-                <List item-layout="vertical" border class="item_list">
-                    <ListItem v-for="item in articleList" size="large" :key="item._id" class="item">
-                        <ListItemMeta :title="item.title" :description="item.create_time" />
-                        {{ item.summary }}
-                        <template slot="action">
-                            <li class="thumb">
-                                <Icon type="ios-thumbs-up-outline" /> {{item.likes}}
-                            </li>
-                        </template>
-                        <template slot="extra">
-                            <img :src="item.image" style="width: 280px">
-                        </template>
-                    </ListItem>
+                <List item-layout="vertical"
+                      border
+                      class="item_list">
+                    <blog-list-item
+                            v-for="item in articleList" :key="item._id"
+                            :item="item"></blog-list-item>
                 </List>
 
                 <div class="no_article" v-if="articleList.length === 0">
@@ -51,18 +44,21 @@
             </Col>
             <Col span="6"></Col>
         </Row>
+        <BackTop :duration="1500" :height="440" :bottom="100" :right="20"></BackTop>
     </div>
 </template>
 
 <script>
     import BlogBanner from "../../components/BlogBanner";
+    import BlogListItem from "../../components/BlogListItem";
     import bannerService from "../../api/bannerService";
     import articleService from "../../api/articleService";
     import articleInfoService from "../../api/articleInfoService";
     export default {
         name: "ArticleList",
         components: {
-            BlogBanner
+            BlogBanner,
+            BlogListItem
         },
         data() {
             return{
@@ -100,6 +96,7 @@
             pageChange(page) {
                 this.options.page = page;
                 this.getArticleListLazy();
+                window.scrollTo(0,440);
             },
             getArticleInfo() {
                 articleInfoService.listTag().then(res => {
@@ -122,7 +119,7 @@
                     if (res.code === 0){
                         let list = res.data;
                         this.articleList = list.map(item => {
-                            item.create_time = new Date(parseInt(item.create_time)).toLocaleTimeString();
+                            item.create_time = new Date(parseInt(item.create_time)).toLocaleDateString();
                             return item;
                         });
                     }
@@ -147,6 +144,7 @@
             .item{
                 position: relative;
                 box-shadow: 0 0 5px rgba(0,0,0,.1);
+                background-color: #fff;
                 margin-bottom: 15px;
                 cursor: pointer;
                 &:hover{
