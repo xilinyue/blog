@@ -11,8 +11,8 @@ let Schema = mongoose.Schema;
 let messageSchema = new Schema({
     user_name: {type: String, required: true},
     avator: {type: String, required: true},
-    title: {type: String, required: true},
-    url: {type: String, required: true}
+    content: {type: String, required: true},
+    create_time: {type: String, default: Date.now}
 });
 
 let messageModel = mongoose.model('messsage',messageSchema);

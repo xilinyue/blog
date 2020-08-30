@@ -54,6 +54,7 @@ app.use('/api/admin/users', require("./routes/admin/users"));
 app.use('/api/admin/article', require("./routes/admin/articles"));
 app.use('/api/admin/articleInfo', require("./routes/admin/articleInfo"));
 app.use('/api/admin/banners', require("./routes/admin/banners"));
+app.use('/api/admin/messages', require("./routes/admin/message"));
 app.use('/api/uploadArticleFace',require('./utils/uploadArticleFace'));
 app.use('/api/uploadBannerImage',require('./utils/uploadBannerImage'));
 // 2. front
@@ -62,6 +63,8 @@ app.use('/api/front/articles', require("./routes/front/article"));
 app.use('/api/front/articleInfo', require("./routes/front/articleInfo"));
 app.use('/api/front/users', require("./routes/front/user"));
 app.use('/api/front/comments',require("./routes/front/commet"));
+app.use('/api/front/messages',require("./routes/front/message"));
+app.use('/api/uploadAvatar',require('./utils/uploadAvatar'));
 
 module.exports = app;
 

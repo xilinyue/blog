@@ -34,6 +34,17 @@
                     label="标题">
             </el-table-column>
             <el-table-column
+                    label="是否推荐"
+                    width="100">
+                <template v-slot="scope">
+                    <el-switch
+                            v-model="scope.row.is_recommend"
+                            active-color="#13ce66"
+                            @change="articleIsAdminChange(scope.row)">
+                    </el-switch>
+                </template>
+            </el-table-column>
+            <el-table-column
                     prop="tag"
                     label="标签"
                     width="150">
@@ -95,6 +106,21 @@
         methods: {
             editArticle(row) {
                 console.log(row);
+            },
+            articleIsAdminChange(row) {
+                articleService.articleIsAdminChange(row._id,row.is_recommend).then(res => {
+                    if (res.code === 0){
+                        this.$message({
+                            type: "success",
+                            message: res.message
+                        });
+                    }else {
+                        this.$message({
+                            type: "error",
+                            message: res.message
+                        });
+                    }
+                });
             },
             deleteArticle(row) {
                 this.$confirm('此操作将永久删除该文章, 是否继续?', '提示', {

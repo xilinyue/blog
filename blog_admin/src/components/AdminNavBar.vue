@@ -38,7 +38,7 @@
                     {title: '文章管理',icon: 'el-icon-s-order',children: [
                             {title: '文章管理',path: '/articleManage'},
                             {title: '添加文章',path: '/articleAdd/0'},
-                            {title: '评论管理',path: '/articleComment'}
+                            {title: '评论管理',path: '/articleCommentManage'}
                         ]},
                     {title: '轮播图',icon: 'el-icon-picture',children: [
                             {title: '轮播图管理',path: '/bannerManage'},

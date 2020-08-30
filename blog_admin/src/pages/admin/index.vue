@@ -3,7 +3,9 @@
         <el-container>
             <el-header class="header">
                 <h2>个人博客后台管理系统</h2>
-                <!--左侧下拉框-->
+                <div class="fr">
+                    欢迎您！{{$store.state.userInfo ? $store.state.userInfo.userName : ''}}
+                </div>
             </el-header>
             <el-container class="main">
                 <el-aside width="200px" class="aside">
@@ -37,6 +39,15 @@
         width: 100%;
         z-index: 9;
         background-color: #409EFF;
+    }
+    .fr {
+        position: absolute;
+        top: 20px;
+        right: 50px;
+        color: #fff;
+        font-size: 18px;
+        font-family: Kaiti;
+        cursor: pointer;
     }
     .main{
         padding-top: 60px;

@@ -13,6 +13,6 @@ let articleInfoSchema = new Schema({
 
 let articleInfoModel = mongoose.model('articleInfo',articleInfoSchema);
 
-// articleInfoModel.create({tags: ['Html', 'Node','Vue'],num: 0});
+// articleInfoModel.create({tags: [],num: 0});
 
 module.exports = articleInfoModel;

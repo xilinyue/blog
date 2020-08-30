@@ -9,7 +9,7 @@
             :arrow="setting.arrow"
             loop
             @on-click="bannerClick">
-        <CarouselItem v-for="(item,index) in bannerList" :key="index" @>
+        <CarouselItem v-for="(item,index) in bannerList" :key="index">
             <div class="banner_item"
                  @mouseenter="changeSetting"
                  @mouseleave="changeSetting">
@@ -48,7 +48,7 @@
                 this.setting.autoplay = !this.setting.autoplay;
             },
             bannerClick(index){
-                console.log(index);
+                this.$router.push('/detail/' + this.bannerList[index].url);
             }
         }
     }

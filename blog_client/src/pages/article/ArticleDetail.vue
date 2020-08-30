@@ -1,21 +1,22 @@
 <template>
     <div class="detail">
-        <blog-banner></blog-banner>
         <Row>
             <Col span="6"><br></Col>
             <Col span="12">
-                <div class="title">{{articleDetail.title}}</div>
-                <div class="info">
-                    <span>作者：<span class="author">Mr.Gan</span></span>
-                    <span>创建时间：{{articleDetail.create_time | time}}</span>
-                    <span>点赞数：{{articleDetail.likes}}</span>
-                </div>
-                <div class="content">
+                <div v-if="articleDetail">
+                    <div class="title">{{articleDetail.title}}</div>
+                    <div class="info">
+                        <span>作者：<span class="author">Mr.Gan</span></span>
+                        <span>创建时间：{{articleDetail.create_time | time}}</span>
+                        <span>点赞数：{{articleDetail.likes}}</span>
+                    </div>
+                    <div class="content">
                         <markdown-preview :initial-value="articleDetail.content"></markdown-preview>
+                    </div>
+                    <blog-thumb :article-id="articleDetail._id"></blog-thumb>
+                    <blog-article-comment :article-id="articleDetail._id"></blog-article-comment>
+                    <article-comment :comments="articleDetail.comments"></article-comment>
                 </div>
-                <blog-thumb :article-id="articleDetail._id"></blog-thumb>
-                <blog-article-comment :article-id="articleDetail._id"></blog-article-comment>
-                <article-comment :comments="articleDetail.comments"></article-comment>
             </Col>
             <Col span="6"></Col>
         </Row>

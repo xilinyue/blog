@@ -32,6 +32,7 @@
                 <markdown v-model="articleAddForm.content"></markdown>
             </el-form-item>
             <el-form-item label="封面" prop="image">
+                <span style="color: #f60">!!!请上传280*200的图片，以保证显示nice。</span>
                 <el-upload
                         class="face-uploader"
                         action="http://localhost:3000/api/uploadArticleFace"

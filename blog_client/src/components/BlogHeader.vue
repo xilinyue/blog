@@ -6,7 +6,7 @@
                 <router-link class="to_home" to="/">首页</router-link>
             </div>
             <div class="give_message">
-                <Button icon="md-chatboxes">给我留言</Button>
+                <Button icon="md-chatboxes" @click="toMessage">给我留言</Button>
             </div>
             <div class="login_register">
                 <div class="info" v-if="userInfo">
@@ -27,6 +27,17 @@
                 </div>
             </div>
         </Header>
+        <Modal
+                v-model="modal"
+                title="修改头像"
+                :footer-hide="true">
+            <Upload action="http://localhost:3000/api/uploadAvatar"
+                    :with-credentials="true"
+                    :format="['jpg','jpeg','png']"
+                    :on-success="handleSuccess">
+                <Button icon="ios-cloud-upload-outline">+</Button>
+            </Upload>
+        </Modal>
     </div>
 </template>
 
@@ -37,7 +48,9 @@
         name: "BlogHeader",
         data() {
             return {
-                userInfo: {}
+                userInfo: {},
+                modal: false,
+                imgSrc: ''
             }
         },
         mounted() {
@@ -51,6 +64,12 @@
             }
         },
         methods: {
+            handleSuccess() {
+                window.location.reload();
+            },
+            toMessage() {
+                this.$router.push("/message");
+            },
             userOperation(path) {
                 this.$router.push({path: path,query: {redirect: this.$route.path}});
             },
@@ -62,6 +81,8 @@
                            window.location.reload();
                        }
                     });
+                }else if (name === 'editAvatar') {
+                    this.modal = true;
                 }
             },
             showUserInfo() {

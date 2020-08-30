@@ -24,6 +24,10 @@ const routes = [
         path: '/detail/:_id',
         name: 'ArticleDetail',
         component: () => import('../pages/article/ArticleDetail')
+    },{
+        path: '/message',
+        name: 'Message',
+        component: () => import('../pages/message')
     }
 ];
 

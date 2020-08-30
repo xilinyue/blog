@@ -6,7 +6,7 @@
                  ref="form"
                  label-width="100px">
             <el-form-item>
-                <div class="info">!!! 图片请上传x*x的图片，以保证显示好看！上传图片之前请确保已经保存好Banner的链接ID</div>
+                <div class="info">!!! 图片请上传951*350的图片，以保证显示好看！上传图片之前请确保已经保存好Banner的链接ID</div>
             </el-form-item>
             <el-form-item label="图片" prop="image">
                 <el-upload

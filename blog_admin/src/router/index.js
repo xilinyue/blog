@@ -44,6 +44,10 @@ const routes = [
                 name: 'ArticleManage',
                 component: () => import('../pages/admin/article/ArticleManage')
             },{
+                path: 'articleCommentManage',
+                name: 'ArticleCommentManage',
+                component: () => import('../pages/admin/article/ArticleCommentManage')
+            },{
                 path: 'tagAdd',
                 name: 'TagAdd',
                 component: () => import('../pages/admin/tag/TagAdd')
@@ -59,6 +63,10 @@ const routes = [
                 path: 'bannerManage',
                 name: 'BannerManage',
                 component: () => import('../pages/admin/banner/BannerManage')
+            },{
+                path: 'messageManage',
+                name: 'MessageManage',
+                component: () => import('../pages/admin/message/MessageManage')
             }
         ]
     },
