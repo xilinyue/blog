@@ -1,3 +1,4 @@
+const e = require('express');
 const express = require('express');
 const userModel = require("../../db/userModel");
 const cryptoUtil = require("../../utils/cryptoUtil");
@@ -99,6 +100,43 @@ router.post('/userLogin',(req,res) => {
     });
 });
 
+/**
+ * 用户修改密码或者用户名
+ * _id: _id,根据id修改
+ * type: password or user_name
+ * passWordOrUsername
+ */
+router.post("/editPasswordOrUserName",(req,res) => {
+    let {_id,type,passWordOrUsername} = req.body;
+    if (!_id || !type || !passWordOrUsername) {
+        res.send({
+            code: 4,
+            message: "参数不完整"
+        });
+    }
+    let docs = null;
+    if(type === "password"){
+        passWordOrUsername = cryptoUtil.encodePassword(passWordOrUsername);
+        docs = {"password": passWordOrUsername};
+    }else{
+        docs = {"user_name": passWordOrUsername};
+    }
+    console.log(_id,type,passWordOrUsername);
+    userModel.updateOne({_id},docs).then(doc => {
+        delete req.session.userInfo;  // 清除session
+        res.send({
+            code: 0,
+            message: "修改成功",
+            data: doc
+        });
+    }).catch(err => {
+        res.send({
+            code: 5,
+            message: "服务器错误",
+            data: err
+        });
+    });
+});
 
 /**
  * 获取用户登录状态

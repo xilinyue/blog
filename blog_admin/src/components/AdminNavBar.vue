@@ -41,12 +41,16 @@
                             {title: '评论管理',path: '/articleCommentManage'}
                         ]},
                     {title: '轮播图',icon: 'el-icon-picture',children: [
-                            {title: '轮播图管理',path: '/bannerManage'},
+                            {title: '轮播图管理',path: '/BannerManage'},
                             {title: '添加轮播图',path: '/bannerAdd'}
                         ]},
                     {title: '留言管理',icon: 'el-icon-s-comment',children: [
 
                             {title: '留言管理',path: '/messageManage'}
+                        ]},
+                    {title: 'zgLove轮播图',icon: 'el-icon-picture',children: [
+                            {title: '轮播图管理',path: '/SwipeManage'},
+                            {title: '添加轮播图',path: '/swipeAdd'}
                         ]},
                 ]
             }

@@ -8,6 +8,7 @@ const mongoose = require("./db/index.js");
 //session
 const session = require('express-session');
 const sessionMongo = require("connect-mongo")(session);
+require("./utils/cosUpload");
 
 // // APP 实例
 let app = express();
@@ -55,6 +56,7 @@ app.use('/api/admin/article', require("./routes/admin/articles"));
 app.use('/api/admin/articleInfo', require("./routes/admin/articleInfo"));
 app.use('/api/admin/banners', require("./routes/admin/banners"));
 app.use('/api/admin/messages', require("./routes/admin/message"));
+app.use('/api/admin/swipes', require("./routes/admin/swipe"));
 app.use('/api/uploadArticleFace',require('./utils/uploadArticleFace'));
 app.use('/api/uploadBannerImage',require('./utils/uploadBannerImage'));
 // 2. front
@@ -64,6 +66,9 @@ app.use('/api/front/articleInfo', require("./routes/front/articleInfo"));
 app.use('/api/front/users', require("./routes/front/user"));
 app.use('/api/front/comments',require("./routes/front/commet"));
 app.use('/api/front/messages',require("./routes/front/message"));
+app.use('/api/front/zgMessages',require("./routes/front/zgMessage"));
+app.use('/api/front/swipes',require("./routes/front/swipe"));
+app.use('/api/front/photos',require("./routes/front/photo"));
 app.use('/api/uploadAvatar',require('./utils/uploadAvatar'));
 
 module.exports = app;

@@ -67,6 +67,14 @@ const routes = [
                 path: 'messageManage',
                 name: 'MessageManage',
                 component: () => import('../pages/admin/message/MessageManage')
+            },{
+                path: 'swipeAdd',
+                name: 'SwipeAdd',
+                component: () => import('../pages/admin/swipe/SwipeAdd')
+            },{
+                path: 'swipeManage',
+                name: 'SwipeManage',
+                component: () => import('../pages/admin/swipe/SwipeManage')
             }
         ]
     },

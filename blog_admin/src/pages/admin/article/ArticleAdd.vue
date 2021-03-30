@@ -35,7 +35,7 @@
                 <span style="color: #f60">!!!请上传280*200的图片，以保证显示nice。</span>
                 <el-upload
                         class="face-uploader"
-                        action="http://localhost:3000/api/uploadArticleFace"
+                        action="http://47.104.155.124:3000/api/uploadArticleFace"
                         :show-file-list="false"
                         :on-success="handleImageSuccess"
                         :before-upload="beforeImageUpload">
@@ -136,6 +136,8 @@
                                 type: 'success',
                                 message: res.message
                             });
+                            this.$refs['articleAddForm'].resetFields();
+                            this.imageUrl = ''
                         });
                     }
                 });

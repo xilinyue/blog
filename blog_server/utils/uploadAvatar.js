@@ -50,7 +50,7 @@ router.post("/",(req,res) => {
                 msg: '上传失败'
             });
         }
-        let image = 'http://localhost:3000/img/avator/' + req.file.filename;
+        let image = 'http://47.104.155.124:3000/img/avator/' + req.file.filename;
         userModel.updateOne(
             {_id: req.session.userInfo._id},
             {avator: image}

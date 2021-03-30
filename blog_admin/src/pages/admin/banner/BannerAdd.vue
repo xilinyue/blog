@@ -11,7 +11,7 @@
             <el-form-item label="图片" prop="image">
                 <el-upload
                         class="face-uploader"
-                        action="http://localhost:3000/api/uploadBannerImage"
+                        action="http://47.104.155.124:3000/api/uploadBannerImage"
                         :show-file-list="false"
                         :on-success="handleImageSuccess"
                         :before-upload="beforeImageUpload">

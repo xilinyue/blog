@@ -31,7 +31,7 @@
                 v-model="modal"
                 title="修改头像"
                 :footer-hide="true">
-            <Upload action="http://localhost:3000/api/uploadAvatar"
+            <Upload action="http://47.104.155.124:3000/api/uploadAvatar"
                     :with-credentials="true"
                     :format="['jpg','jpeg','png']"
                     :on-success="handleSuccess">

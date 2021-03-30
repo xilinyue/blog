@@ -52,7 +52,7 @@ router.post("/",(req,res) => {
         res.send ({
             code: 0,
             message: '上传成功',
-            imgSrc: 'http://localhost:3000/img/banner/' + req.file.filename
+            imgSrc: 'http://47.104.155.124:3000/img/banner/' + req.file.filename
         });
     });
 })
