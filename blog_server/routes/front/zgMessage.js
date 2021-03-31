@@ -5,9 +5,7 @@ let router = express.Router();
 
 /**
  * 添加留言
- * userId 留言用户_id
- * userName 留言用户名
- * avatar 留言用户头像
+ * user 留言用户_id
  * content 建议使用html格式内容
  * create_time留言时间
  */
@@ -32,9 +30,7 @@ router.post("/addZgMessage",(req,res) => {
     }
     // 添加到messages中
     zgMessageModel.create({
-        userId: userInfo._id,
-        userName: userInfo.userName,
-        avatar: userInfo.avator,
+        user: userInfo._id,
         content
     }).then(doc => {
         res.send({
@@ -58,7 +54,9 @@ router.get("/listZgMessage", (req,res) => {
     let {skip,limit} = req.query;
     limit = limit ? parseInt(limit) : 5;
     skip = skip ? (parseInt(skip) - 1)*limit : 0;
-    zgMessageModel.find({},{__v: 0},{skip,limit,sort: {create_time: -1}}).then(docs => {
+    zgMessageModel.find({},{__v: 0},{skip,limit,sort: {create_time: -1}})
+        .populate('user',{_id: 1, user_name: 1,avator: 1})
+        .then(docs => {
         res.send({
             code: 0,
             message: '数据获取成功',

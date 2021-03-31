@@ -10,9 +10,7 @@ let Schema = mongoose.Schema;
  * message 留言内容
 */
 let zgMessageSchema = new Schema({
-    userId: {type: String, required: true},
-    userName: {type: String, required: true},
-    avatar: {type: String, required: true},
+    user: {type: Schema.ObjectId,ref: 'user',required: true},
     content: {type: String, required: true},
     create_time: {type: String,default: Date.now}
 });
